@@ -1,13 +1,14 @@
 #pragma once
 #include <iostream>
+#define _USE_MATH_DEFINES
 #include <math.h>
-#define M_PI       3.14159   // pi
+
 
 class TComplex
 {
 public:
   TComplex();
-  TComplex(float _re, float _im);
+  TComplex(double _re, double _im);
   ~TComplex();
 
 
@@ -21,25 +22,29 @@ public:
   friend std::ostream& operator<<(std::ostream& str, const TComplex &other);
   
 
-  float GetRe();
-  float GetIm();
+  double GetRe();
+  double GetIm();
 
 
-  void SetRe(float _re);
-  void SetIm(float _im);
+  void SetRe(double _re);
+  void SetIm(double _im);
+
+  void PrintTrig();
 
 
   void CPrint();
-  float Modulus();
+  double Modulus();
 
 
-  TComplex Pow(float n);
+  TComplex Pow(double n);
+  TComplex PPow(double n);
 
+  double Arg();
 
 
 protected:
 
-  float re;
-  float im;
+  double re;
+  double im;
 
 };
